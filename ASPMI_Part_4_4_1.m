@@ -58,9 +58,9 @@ end
 
 % MSE and prediction gain
 MSE_lms = mean((y(M+1:end) - y_pred_lms(M+1:end)).^2);
-sigma2_y = var(y_pred_lms(M+1:end));   % Variance of LMS output
-sigma2_e = var(y(M+1:end) - y_pred_lms(M+1:end));   % Variance of error
-Rp_lms   = 10 * log10(sigma2_y / sigma2_e);
+sigma2_pred = var(y_pred_lms(M+1:end));   % Variance of LMS prediction output
+sigma2_e = var(y(M+1:end) - y_pred_lms(M+1:end));   % Variance of prediction error
+Rp_lms   = 10 * log10(sigma2_pred / sigma2_e);
 
 fprintf('\n=== Part 1: LMS predictor (AR4) ===\n');
 fprintf('MSE       = %.4f\n', MSE_lms);

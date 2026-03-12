@@ -167,7 +167,9 @@ for m = 1:length(mu_vals)
     fprintf('mu = %.2f: w1_est = %.4f (true %.1f), w2_est = %.4f (true %.1f)\n', ...
         mu, w_mean(1), a1, w_mean(2), a2);
 end
-fprintf('Note: biased estimates are expected when signal variance is high.\n\n');
+fprintf('Standard LMS converges to unbiased estimates of the AR coefficients.\n');
+fprintf('Any small deviation from the true values is due to finite N and noise variance,\n');
+fprintf('not a systematic bias. Leaky LMS (Part f) introduces genuine bias via the L2 term.\n\n');
 
 %% =========================================================
 %% (e) Leaky LMS derivation note (analytical – shown in comments)
