@@ -102,6 +102,7 @@ fprintf('    only ONE coefficient per sample.\n\n');
 %% =========================================================
 %% (d) DFT-CLMS on EEG signal (POz, 1200-sample segment)
 %% =========================================================
+% The EEG file for Part 3.3d is the same as in Assignment 1 (POz channel).
 eeg_file = 'EEG_Data\EEG_Data_Assignment1.mat';
 if ~isfile(eeg_file)
     warning('EEG file not found: %s\nSkipping Part (d).', eeg_file);

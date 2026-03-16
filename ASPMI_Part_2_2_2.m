@@ -144,9 +144,9 @@ for l = 1:L
     for n = 1:N
         e = d(n) - w * u(n);
         wtilde_gngd(n) = wtilde_gngd(n) + (w_true - w)^2;
-        % Update epsilon
+        % Update epsilon (add small floor to avoid division by zero)
         denom  = (eps_prev + u_prev^2)^2;
-        eps_new = eps_n - rho_gngd * beta_gngd * (e * e_prev * u(n) * u_prev) / (denom + eps);
+        eps_new = eps_n - rho_gngd * beta_gngd * (e * e_prev * u(n) * u_prev) / (denom + 1e-10);
         eps_new = max(1e-6, eps_new);   % Keep epsilon non-negative
         % NLMS-style weight update
         w = w + beta_gngd / (eps_n + u(n)^2) * e * u(n);
